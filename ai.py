@@ -7,6 +7,8 @@ class Artificial(Player):
         super().__init__(player)
         pass
     
+    # AI random Choice 
+    
     def rand_choices(self):
-        self.ai_choices = random.choice(self.action_list)
+        self.ai_choices = self.action_list[random.randint(0, 4)]
         pass
