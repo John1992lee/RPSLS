@@ -81,9 +81,11 @@ class Game:
                     self.display_winner(self.ai_robot_one, self.ai_robot_two)
                     bool = False
         elif self.human_player == 1:
+            print()
             self.human_name = str(input("Please Enter Player One Name: "))
             self.player_one = Human(self.human_name)
             self.ai_robot_one = Artificial("AI")
+            print()
             time.sleep(1)
             print(f"Choose 0 for {self.player_one.action_list[0]}")
             time.sleep(1)
@@ -122,13 +124,55 @@ class Game:
                     self.spock(self.player_one, self.ai_robot_one)
                 else: 
                     print("Thats wasn't one of the option! ")
-                
+                if self.player_one.best_of == 2 or self.ai_robot_one.best_of == 2:
+                    self.display_winner(self.player_one, self.ai_robot_one)
+                    bool = False
         elif self.human_player == 2:
             self.human_name_one = str(input("Please Enter Player One Name: "))
             self.player_one = Human(self.human_name_one)
             self.human_name_two = str(input("Please Enter Player two Name: "))
             self.player_two = Human(self.human_name_two)
-            pass
+            time.sleep(1)
+            print()
+            print(f"Choose 0 for {self.player_one.action_list[0]}")
+            time.sleep(1)
+            print(f"Choose 1 for {self.player_one.action_list[1]}")
+            time.sleep(1)
+            print(f"Choose 2 for {self.player_one.action_list[2]}")
+            time.sleep(1)
+            print(f"Choose 3 for {self.player_one.action_list[3]}")
+            time.sleep(1)
+            print(f"Choose 4 for {self.player_one.action_list[4]}")
+            print()
+            bool = True
+            while bool:
+                print()
+                time.sleep(1)
+                self.player_one_input = int(input(f"{self.player_one.players} Please Choose your options: "))
+                self.player_one_input = self.player_one.gesture(self.player_one_input)
+                print()
+                time.sleep(1)
+                self.player_two_input = int(input(f"{self.player_two.players} Please choose your options: "))
+                self.player_two_input = self.player_two.gesture(self.player_two_input)
+                print()
+                time.sleep(1)
+                print(self.player_one.players, "chose", self.player_one_input)
+                time.sleep(1)
+                print(self.player_two.players, "chose", self.player_two_input)
+                time.sleep(1)
+                print()
+                if self.player_one_input == "Rock":
+                    self.rock(self.player_one, self.player_two)
+                elif self.player_one_input == "Paper":
+                    self.paper(self.player_one, self.player_two)
+                elif self.player_one_input == "Scissors":
+                    self.scissor(self.player_one, self.player_two)
+                elif self.player_one_input == "Lizard":
+                    self.lizard(self.player_one, self.player_two)
+                elif self.player_one_input == "Spock":
+                    self.spock(self.player_one, self.player_two)
+                if self.player_one.best_of == 2 or self.player_two.best_of == 2:
+                    self.display_winner(self.player_one, self.player_two)
         else:
             print("Invaild Input! ")
             self.game_action()
