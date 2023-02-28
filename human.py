@@ -20,4 +20,4 @@ class Human(Player):
         elif number == 4:
             return "Spock"
         else: 
-            return "Error"
+            return "Invaild Input!"
