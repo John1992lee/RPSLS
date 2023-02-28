@@ -87,6 +87,7 @@ class Game:
             bool = True
             while bool:
                 self.ai_robot_one.rand_choices()
+                print()
                 self.human_input = int(input("Please choose your option: "))
                 self.human_input = self.player_one.gesture(self.human_input)
                 print()
@@ -99,7 +100,7 @@ class Game:
                 self.human_comparsion(self.human_input, self.ai_robot_one, self.player_one)
                 if self.player_one.best_of == 2 or self.ai_robot_one.best_of == 2:
                     self.display_winner(self.player_one, self.ai_robot_one)
-                    bool = False
+                    bool = False               
         elif self.human_player == 2:
             print()
             self.human_name_one = str(input("Please Enter Player One Name: "))
@@ -130,109 +131,13 @@ class Game:
                 self.player_two_input = int(input(f"{self.player_two.players}, Please choose your options: "))
                 self.player_two_input = self.player_two.gesture(self.player_two_input)
                 print()
-                if self.player_one_input == self.player_two_input:
-                    time.sleep(1)
-                    print(f"{self.player_one.players} chose {self.player_one_input}")
-                    time.sleep(1)
-                    print(f"{self.player_two.players} chose {self.player_two_input}")
-                    time.sleep(1)
-                    print()
-                    print("It's a Tie! Please choose again!")
-                elif self.player_one_input == "Rock":
-                    time.sleep(1)
-                    print(f"{self.player_one.players} chose {self.player_one_input}")
-                    time.sleep(1)
-                    print(f"{self.player_two.players} chose {self.player_two_input}")
-                    time.sleep(1)
-                    print()
-                    if self.player_two_input == "Paper" or self.player_two_input == "Spock":
-                        print(self.player_two.players, "Won!")
-                        self.player_two.best_of += 1
-                    elif self.player_two_input == "Scissors" or self.player_two_input == "Lizard":
-                        print(self.player_one.players, "Won!")
-                        self.player_one.best_of += 1
-                elif self.player_one_input == "Paper":
-                    time.sleep(1)
-                    print(f"{self.player_one.players} chose {self.player_one_input}")
-                    time.sleep(1)
-                    print(f"{self.player_two.players} chose {self.player_two_input}")
-                    time.sleep(1)
-                    print()
-                    if self.player_two_input == "Scissors" or self.player_two_input == "Lizard":
-                        print(self.player_two.players, "Won!")
-                        self.player_two.best_of += 1
-                    elif self.player_two_input == "Rock" or self.player_two_input == "Spock":
-                        print(self.player_one.players, "Won!")
-                        self.player_one.best_of += 1
-                elif self.player_one_input == "Scissors":
-                    time.sleep(1)
-                    print(f"{self.player_one.players} chose {self.player_one_input}")
-                    time.sleep(1)
-                    print(f"{self.player_two.players} chose {self.player_two_input}")
-                    time.sleep(1)
-                    print()
-                    if self.player_two_input == "Paper" or self.player_two_input == "Lizard":
-                        print(self.player_one.players, "Won!")
-                        self.player_one.best_of += 1
-                    elif self.player_two_input == "Rock" or self.player_two_input == "Spock":
-                        print(self.player_two.players, "Won!")
-                        self.player_two.best_of += 1
-                elif self.player_one_input == "Lizard":
-                    time.sleep(1)
-                    print(f"{self.player_one.players} chose {self.player_one_input}")
-                    time.sleep(1)
-                    print(f"{self.player_two.players} chose {self.player_two_input}")
-                    time.sleep(1)
-                    print()
-                    if self.player_two_input == "Paper" or self.player_two_input == "Spock":
-                        print(self.player_one.players, "Won!")
-                        self.player_one.best_of += 1
-                    elif self.player_two_input == "Rock" or self.player_two_input == "Scissors":
-                        print(self.player_two.players, "Won!")
-                        self.player_two.best_of += 1
-                elif self.player_one_input == "Spock":
-                    time.sleep(1)
-                    print(f"{self.player_one.players} chose {self.player_one_input}")
-                    time.sleep(1)
-                    print(f"{self.player_two.players} chose {self.player_two_input}")
-                    time.sleep(1)
-                    print()
-                    if self.player_two_input == "Scissors" or self.player_two_input == "Rock":
-                        print(self.player_one.players, "Won!")
-                        self.player_one.best_of += 1
-                    elif self.player_two_input == "Lizard" or self.player_two_input == "Paper":
-                        print(self.player_two.players, "Won!")
-                        self.player_two.best_of += 1
-                else: 
-                    print(f"Invaild! {self.player_one.players}, please choose another gesture! ")
-
-                if self.player_two_input == "Rock":
-                    if self.player_one_input == "Paper" or self.player_one_input == "Spock":
-                        print()
-                    elif self.player_one_input == "Scissors" or self.player_one_input == "Lizard":
-                        print()
-                elif self.player_two_input == "Paper":
-                    if self.player_one_input == "Scissors" or self.player_one_input == "Lizard":
-                        print()
-                    elif self.player_one_input == "Rock" or self.player_one_input == "Spock":
-                        print()
-                elif self.player_two_input == "Scissors":
-                    if self.player_one_input == "Paper" or self.player_one_input == "Lizard":
-                        print()
-                    elif self.player_one_input == "Rock" or self.player_one_input == "Spock":
-                        print()
-                elif self.player_two_input == "Lizard":
-                    if self.player_one_input == "Paper" or self.player_one_input == "Spock":
-                        print()
-                    elif self.player_one_input == "Rock" or self.player_one_input == "Scissors":
-                        print()
-                elif self.player_two_input == "Spock":
-                    if self.player_one_input == "Scissors" or self.player_one_input == "Rock":
-                        print()
-                    elif self.player_one_input == "Lizard" or self.player_one_input == "Paper":
-                        print()
-                else: 
-                    print(f"Error! {self.player_two.players}, Please choose other options! ")
+                time.sleep(1)
+                print(f"{self.player_one.players} chose {self.player_one_input}")
+                time.sleep(1)
+                print(f"{self.player_two.players} chose {self.player_two_input}")
+                time.sleep(1)
+                print()
+                self.players_vs_players(self.player_one_input, self.player_two_input, self.player_one, self.player_two)
                 if self.player_one.best_of == 2 or self.player_two.best_of == 2:
                     self.display_winner(self.player_one, self.player_two)
                     bool = False
@@ -298,7 +203,7 @@ class Game:
                 print(user_2.players, "Won!")
                 user_2.best_of += 1
             else:
-                print(user_1.players, "Won!")
+                print(user_3.players, "Won!")
                 user_3.best_of += 1
         elif user_1 == "Scissors":
             if user_2.ai_choices == "Paper" or user_2.ai_choices == "Lizard":
@@ -324,6 +229,47 @@ class Game:
         else:
             print("Please choose a different gesture! ")
 
+    def players_vs_players(self, user_1, user_2, user_3, user_4):
+        if user_1 == user_2:
+            print()
+            print("It's a Tie! Please choose again!")
+        if user_1 == "Rock":
+            if user_2 == "Paper" or user_2 == "Spock":
+                user_4.best_of += 1
+                print(f'{user_4.players} won!')
+            elif user_2 == "Scissors" or user_2 == "Lizard":
+                user_3.best_of += 1
+                print(f'{user_3.players} won!')
+        elif user_1 == "Paper":
+            if user_2 == "Scissors" or user_2 == "Lizard":
+                user_4.best_of += 1
+                print(f'{user_4.players} won!')
+            elif user_2 == "Rock" or user_2 == "Spock":
+                user_3.best_of += 1
+                print(f'{user_3.players} won!')
+        elif user_1 == "Scissors":
+            if user_2 == "Paper" or user_2 == "Lizard":
+                user_3.best_of += 1
+                print(f'{user_3.players} won!')
+            elif user_2 == "Rock" or user_2 == "Spock":
+                user_4.best_of += 1
+                print(f'{user_4.players} won!')
+        elif user_1 == "Lizard":
+            if user_2 == "Paper" or user_2 == "Spock":
+                user_3.best_of += 1
+                print(f'{user_3.players} won!')
+            elif user_2 == "Rock" or user_2 == "Scissors":
+                user_4.best_of += 1
+                print(f'{user_4.players} won!')
+        elif user_1 == "Spock":
+            if user_2 == "Scissors" or user_2 == "Rock":
+                user_3.best_of += 1
+                print(f'{user_3.players} won!')
+            elif user_2 == "Lizard" or user_2 == "Paper":
+                user_4.best_of += 1
+                print(f'{user_4.players} won!')
+        else:
+            print("Please choose a different gesture! ")
 
     def display_winner(self, player_one, player_two):        
         if player_one.best_of > player_two.best_of:
